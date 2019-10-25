@@ -1,4 +1,6 @@
 /**
+ * This Class Lays the frame work for calculating Dates in any calendar
+ *
  * @author Jonathan Jordan <>ThinkingFork99@gmail.com</>
  */
 public class Date {
@@ -8,10 +10,11 @@ public class Date {
 	private int year;
 
 	/**
+	 * Overloaded Constructor Used to find a specified date
 	 *
-	 * @param month
-	 * @param day
-	 * @param year
+	 * @param month the month
+	 * @param day the day
+	 * @param year the year
 	 */
 	Date(int year, int month, int day) {
 		this.month = month;
@@ -19,17 +22,26 @@ public class Date {
 		this.year = year;
 	}
 
-
+	/**
+	 *Prints the Date in: Month D, YYYY Format to the Console
+	 */
 	void printLongDate() {
 		System.out.printf("%s %d, %d", getCurrentMonthName(), this.day, this.year);
 	}
 
+	/**
+	 * Prints the Date in: MM/DD/YYYY Format to the console
+	 */
 	void printShortDate() {
 		System.out.printf("%d/%d/%d", this.month, this.day, this.year);
 	}
 
 
-
+	/**
+	 * Adds Days to the current Day
+	 *
+	 * @param days How many days to add (int)
+	 */
 	void addDays(int days) {
 		for (int i = 0; i < days; i++) {
 			this.day += 1;
@@ -44,6 +56,11 @@ public class Date {
 		}
 	}
 
+	/**
+	 * Subtracts Days from the current day
+	 *
+	 * @param days How Many Day to subtract (int)
+	 */
 	void subtractDays(int days) {
 
 		for (int i = 0; i < days; i++) {
@@ -59,18 +76,40 @@ public class Date {
 		}
 	}
 
+	/**
+	 * Check if it is a leap year
+	 *
+	 * @return true if it is a leap year, false otherwise
+	 */
 	public boolean isLeapYear() {
 		return isLeapYear(this.year);
 	}
 
+
+	/**
+	 * Checks if a year is a leap year
+	 *
+	 * @param year integer value of a year
+	 * @return true if the year is a leap year, otherwise false
+	 */
 	public boolean isLeapYear(int year) {
 		return false;
 	}
 
+	/**
+	 * Give the integer value of the month
+	 *
+	 * @return an int of the current month
+	 */
 	int getCurrentMonth() {
 		return this.month;
 	}
 
+	/**
+	 * Gives the Full Month Name
+	 *
+	 * @return A String of the Month Provided
+	 */
 	String getCurrentMonthName() {
 		String monthName = "";
 		switch (month) {
@@ -117,14 +156,31 @@ public class Date {
 		return monthName;
 	}
 
+	/**
+	 * Give the integer value of the day
+	 *
+	 * @return an int of the current day
+	 */
 	int getCurrentDayOfMonth() {
 		return this.day;
 	}
 
+	/**
+	 * Give the integer value of the year
+	 *
+	 * @return an int of the current year
+	 */
 	int getCurrentYear() {
 		return this.year;
 	}
 
+	/**
+	 * Determines How many days are in a specific month
+	 *
+	 * @param year the year in integer form
+	 * @param month	the month in integer form
+	 * @return	31 When month is 1,3,5,7,8,10,12. 30 when month 4,6,9,11. 29 or 28 for month 2 based of it being a leap year
+	 */
 	private int getNumberOfDaysInMonth(int year, int month){
 		int numberOfDays = 0;
 		switch (month) {
